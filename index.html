@@ -671,8 +671,8 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    height: 44px;
-    padding: 0 32px;
+    height: 64px;
+    padding: 0 40px;
     opacity: 0.4;
     filter: grayscale(100%);
     transition: opacity .3s, filter .3s;
@@ -683,9 +683,9 @@
     filter: grayscale(0%);
   }
   .logo-item img {
-    height: 32px;
+    height: 48px;
     width: auto;
-    max-width: 130px;
+    max-width: 180px;
     object-fit: contain;
   }
 
@@ -1283,20 +1283,46 @@
 (function() {
   var track = document.getElementById('logoTrack');
   if (!track) return;
+
+  // Clone items to fill at least 3x the viewport width for seamless loop
+  var items = Array.from(track.children);
+  // Add enough clones to always fill screen
+  for (var i = 0; i < 4; i++) {
+    items.forEach(function(item) {
+      track.appendChild(item.cloneNode(true));
+    });
+  }
+
   var pos = 0, paused = false;
-  function half() { return track.scrollWidth / 2; }
+  var singleSetWidth = 0;
+
+  function calcWidth() {
+    // Width of one original set of items
+    var itemCount = items.length;
+    var totalWidth = track.scrollWidth;
+    var totalItems = track.children.length;
+    singleSetWidth = totalWidth / totalItems * itemCount;
+  }
+
   function step() {
     if (!paused) {
       pos += 0.4;
-      if (pos >= half()) pos -= half();
+      if (pos >= singleSetWidth) pos -= singleSetWidth;
       track.style.transform = 'translateX(-' + pos + 'px)';
     }
     requestAnimationFrame(step);
   }
+
   track.parentElement.addEventListener('mouseenter', function() { paused = true; });
   track.parentElement.addEventListener('mouseleave', function() { paused = false; });
-  window.addEventListener('load', step);
-  if (document.readyState === 'complete') step();
+
+  window.addEventListener('load', function() {
+    calcWidth();
+    requestAnimationFrame(step);
+  });
+  if (document.readyState === 'complete') {
+    setTimeout(function() { calcWidth(); requestAnimationFrame(step); }, 100);
+  }
 })();
 </script>
 
