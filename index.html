@@ -567,6 +567,126 @@
     object-fit: cover; object-position: center top; display: block;
   }
 
+  /* ── EXPERIENCE VISUAL ── */
+  .exp-section { background: var(--gray-50); }
+  .exp-visual-timeline { position: relative; max-width: 760px; margin: 0 auto; }
+  .exp-visual-item {
+    display: grid;
+    grid-template-columns: 140px 20px 1fr;
+    column-gap: 20px;
+    margin-bottom: 52px;
+    align-items: start;
+    position: relative;
+  }
+  .exp-visual-item:last-child { margin-bottom: 0; }
+  .exp-visual-item:not(:last-child)::after {
+    content: '';
+    position: absolute;
+    left: 149px;
+    top: 16px;
+    bottom: -52px;
+    width: 2px;
+    background: linear-gradient(to bottom, var(--blue), var(--gray-100));
+    opacity: 0.3;
+  }
+  .exp-visual-left { text-align: right; padding-top: 2px; }
+  .exp-visual-year { font-size: 11px; color: var(--gray-300); letter-spacing: 0.04em; line-height: 1.5; }
+  .exp-visual-company { font-size: 12px; font-weight: 700; color: var(--blue); margin-top: 3px; }
+  .exp-visual-dot {
+    width: 12px; height: 12px; border-radius: 50%;
+    background: var(--blue); border: 2px solid var(--gray-50);
+    box-shadow: 0 0 0 2px var(--blue);
+    margin-top: 4px; justify-self: center; flex-shrink: 0;
+  }
+  .exp-visual-right { padding-bottom: 8px; }
+  .exp-visual-role {
+    font-size: 17px; font-weight: 700; letter-spacing: -0.02em;
+    color: var(--gray-900); margin-bottom: 3px; line-height: 1.25;
+  }
+  .exp-visual-tag {
+    font-size: 11px; color: var(--gray-300); margin-bottom: 12px; letter-spacing: 0.02em;
+  }
+  .exp-visual-impact {
+    font-size: 14px; color: var(--gray-700); line-height: 1.65;
+    font-style: italic; border-left: 3px solid var(--blue);
+    padding-left: 12px; margin-bottom: 14px;
+    background: rgba(0,113,227,0.04); border-radius: 0 8px 8px 0;
+    padding-top: 8px; padding-bottom: 8px; padding-right: 8px;
+  }
+  .exp-visual-number {
+    font-size: 12px; font-weight: 600; color: var(--blue);
+    background: rgba(0,113,227,0.08);
+    display: inline-block; padding: 4px 12px; border-radius: 980px;
+  }
+  .exp-visual-numbers { display: flex; flex-wrap: wrap; gap: 8px; }
+  .exp-visual-stat {
+    font-size: 11px; color: var(--gray-500);
+    background: white; border: 1px solid var(--gray-100);
+    border-radius: 12px; padding: 8px 14px;
+    display: flex; flex-direction: column; align-items: center;
+    gap: 2px; min-width: 68px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.04);
+  }
+  .exp-visual-stat span {
+    font-size: 17px; font-weight: 700; color: var(--gray-900);
+    letter-spacing: -0.02em; line-height: 1;
+  }
+  @media (max-width: 768px) {
+    .exp-visual-item { grid-template-columns: 20px 1fr; }
+    .exp-visual-left { display: none; }
+    .exp-visual-item:not(:last-child)::after { left: 9px; }
+  }
+
+  /* ── LOGO STRIP ── */
+  .logo-strip {
+    background: var(--white);
+    padding: 40px 0;
+    border-bottom: 1px solid var(--gray-100);
+    overflow: hidden;
+  }
+  .logo-strip-label {
+    text-align: center;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--gray-300);
+    margin-bottom: 28px;
+  }
+  .logo-track-wrapper {
+    width: 100%;
+    overflow: hidden;
+    -webkit-mask-image: linear-gradient(to right, transparent 0%, black 8%, black 92%, transparent 100%);
+    mask-image: linear-gradient(to right, transparent 0%, black 8%, black 92%, transparent 100%);
+  }
+  .logo-track {
+    display: flex;
+    align-items: center;
+    gap: 64px;
+    width: max-content;
+    will-change: transform;
+  }
+  .logo-item {
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 36px;
+    opacity: 0.45;
+    transition: opacity .3s;
+    filter: grayscale(100%);
+  }
+  .logo-item:hover {
+    opacity: 0.8;
+    filter: grayscale(0%);
+  }
+  .logo-item img {
+    height: 32px;
+    width: auto;
+    max-width: 120px;
+    object-fit: contain;
+  }
+
 </style>
 </head>
 <body>
@@ -632,6 +752,29 @@
   </div>
 </div>
 
+<!-- LOGO STRIP -->
+<div class="logo-strip">
+  <div class="logo-strip-label">Organizations</div>
+  <div class="logo-track-wrapper">
+    <div class="logo-track" id="logoTrack">
+      <div class="logo-item"><img src="https://logo.dev/amedisys.com?token=pk_TcLMzBR_Rwa9dsvzPCdDEA" alt="Amedisys" /></div>
+      <div class="logo-item"><img src="https://logo.dev/nychealthandhospitals.org?token=pk_TcLMzBR_Rwa9dsvzPCdDEA" alt="NYC Health + Hospitals" /></div>
+      <div class="logo-item"><img src="https://logo.dev/mountsinai.org?token=pk_TcLMzBR_Rwa9dsvzPCdDEA" alt="Mount Sinai" /></div>
+      <div class="logo-item"><img src="https://logo.dev/mitsloan.mit.edu?token=pk_TcLMzBR_Rwa9dsvzPCdDEA" alt="MIT Sloan" /></div>
+      <div class="logo-item"><img src="https://logo.dev/baxter.com?token=pk_TcLMzBR_Rwa9dsvzPCdDEA" alt="Baxter International" /></div>
+      <div class="logo-item"><img src="https://logo.dev/kkr.com?token=pk_TcLMzBR_Rwa9dsvzPCdDEA" alt="KKR" /></div>
+      <!-- duplicates for seamless loop -->
+      <div class="logo-item"><img src="https://logo.dev/amedisys.com?token=pk_TcLMzBR_Rwa9dsvzPCdDEA" alt="Amedisys" /></div>
+      <div class="logo-item"><img src="https://logo.dev/nychealthandhospitals.org?token=pk_TcLMzBR_Rwa9dsvzPCdDEA" alt="NYC Health + Hospitals" /></div>
+      <div class="logo-item"><img src="https://logo.dev/mountsinai.org?token=pk_TcLMzBR_Rwa9dsvzPCdDEA" alt="Mount Sinai" /></div>
+      <div class="logo-item"><img src="https://logo.dev/mitsloan.mit.edu?token=pk_TcLMzBR_Rwa9dsvzPCdDEA" alt="MIT Sloan" /></div>
+      <div class="logo-item"><img src="https://logo.dev/baxter.com?token=pk_TcLMzBR_Rwa9dsvzPCdDEA" alt="Baxter International" /></div>
+      <div class="logo-item"><img src="https://logo.dev/kkr.com?token=pk_TcLMzBR_Rwa9dsvzPCdDEA" alt="KKR" /></div>
+    </div>
+  </div>
+</div>
+
+
 <!-- ABOUT -->
 <section id="about">
   <div class="container">
@@ -654,14 +797,14 @@
       </div>
       <div class="about-visual reveal">
         <div class="av-card">
-          <div class="av-card-label">Current · Pre-Seed</div>
-          <div class="av-card-val">CTO</div>
-          <div class="av-card-sub">Stealth MedTech — Home Health &amp; LTC</div>
+          <div class="av-card-label">Currently</div>
+          <div class="av-card-val">CTO at a Pre-Seed AI Startup</div>
+          <div class="av-card-sub">Building vertical AI for Home Health &amp; Long-Term Care</div>
         </div>
         <div class="av-card">
-          <div class="av-card-label">Senior Advisor</div>
+          <div class="av-card-label">Advisor</div>
           <div class="av-card-val">PE Due Diligence</div>
-          <div class="av-card-sub">Top-5 Global Private Equity Firm (by AUM)</div>
+          <div class="av-card-sub">KKR</div>
         </div>
         <div class="av-card">
           <div class="av-card-label">Division Revenue Growth</div>
@@ -721,108 +864,113 @@
 <section id="experience" class="exp-section">
   <div class="container">
     <p class="section-eyebrow" style="text-align:center;">Career</p>
-    <h2>Experience</h2>
-    <div class="exp-timeline">
+    <h2 style="text-align:center;">Experience</h2>
 
-      <div class="exp-item reveal">
-        <div class="exp-date">
-          <div class="exp-year">2026 – Present</div>
-          <div class="exp-company">Stealth MedTech</div>
-        </div>
-        <div class="exp-content">
-          <div class="exp-role">Chief Technology Officer</div>
-          <div class="exp-meta">Pre-Seed · Home Health &amp; Long-Term Care</div>
-          <ul class="exp-bullets">
-            <li>Leading active pilots at long-term care facilities and a hospital partner; using signals to refine product use case and inform commercial positioning ahead of seed raise.</li>
-            <li>Coaching founding technical team on architecture, scalability, and enterprise readiness.</li>
-            <li>Stood up and now leading an offshore prototyping team in India to accelerate hardware/software iteration.</li>
-            <li>Defining roadmap extensions including a consumer-scale monitoring product; advising founders on GTM sequencing and enterprise sales readiness.</li>
-          </ul>
-        </div>
-      </div>
+    <div class="exp-visual-timeline">
 
-      <div class="exp-item reveal">
-        <div class="exp-date">
-          <div class="exp-year">2026 – Present</div>
-          <div class="exp-company">Confidential PE Firm</div>
+      <div class="exp-visual-item reveal">
+        <div class="exp-visual-left">
+          <div class="exp-visual-year">2026 – Present</div>
+          <div class="exp-visual-company">Owle Ai</div>
         </div>
-        <div class="exp-content">
-          <div class="exp-role">Senior Advisor — Healthcare Technology Due Diligence</div>
-          <div class="exp-meta">Top-Five Global Private Equity Firm by AUM</div>
-          <p class="exp-desc">Engaged to support due diligence on an active MedTech platform-and-services investment opportunity. Working directly with deal partners on commercial, technical, and operational diligence.</p>
-        </div>
-      </div>
-
-      <div class="exp-item reveal">
-        <div class="exp-date">
-          <div class="exp-year">2019 – 2026</div>
-          <div class="exp-company">Baxter International</div>
-        </div>
-        <div class="exp-content">
-          <div class="exp-role">President, Connected Care</div>
-          <div class="exp-meta">NYSE: BAX · Chicago, IL · $650M Global P&amp;L · Services, SaaS &amp; Platform Operations · 3,200+ Employees · 16 Countries</div>
-          <ul class="exp-bullets">
-            <li>Built and scaled Baxter's enterprise connected care platform integrating software, devices, data, voice, and clinical workflows on AWS-based cloud architecture.</li>
-            <li>Led enterprise technology integration across multiple major M&amp;A transactions; designed and shipped Device Bridge (clinical integration) and SCRM (clinical engineering) as flagship unified platform products.</li>
-            <li>Repositioned Global Services from a break/fix model to a margin engine through SKU rationalization, SLA amendments, and supplier rationalization.</li>
-            <li>Launched Voalte Linq in 2025 — industry-first AI Voice Gateway enabling real-time clinical and device interaction at enterprise scale.</li>
-            <li>Chaired a Digital Health Advisory Board of CIOs, CMIOs, and CNOs from leading hospital systems.</li>
-          </ul>
-          <div class="achievement-strip">
-            <span class="achievement">$24M margin expansion</span>
-            <span class="achievement">$25M cost savings</span>
-            <span class="achievement">13% YoY growth</span>
-            <span class="achievement">3% → 9% trajectory</span>
+        <div class="exp-visual-dot"></div>
+        <div class="exp-visual-right">
+          <div class="exp-visual-role">Chief Technology Officer</div>
+          <div class="exp-visual-tag">Pre-Seed · Home Health &amp; LTC</div>
+          <div class="exp-visual-impact">"Building a vertical AI product for the most underserved segment in U.S. healthcare — where the stakes are high and the technology gap is even higher."</div>
+          <div class="exp-visual-numbers">
+            <div class="exp-visual-stat"><span>3</span>Active pilots</div>
+            <div class="exp-visual-stat"><span>Pre-Seed</span>Stage</div>
           </div>
         </div>
       </div>
 
-      <div class="exp-item reveal">
-        <div class="exp-date">
-          <div class="exp-year">2013 – 2019</div>
-          <div class="exp-company">Mount Sinai</div>
+      <div class="exp-visual-item reveal">
+        <div class="exp-visual-left">
+          <div class="exp-visual-year">2026 – Present</div>
+          <div class="exp-visual-company">KKR</div>
         </div>
-        <div class="exp-content">
-          <div class="exp-role">Division CIO, International Business</div>
-          <div class="exp-meta">Mount Sinai Health System · New York, NY</div>
-          <ul class="exp-bullets">
-            <li>Led IT and digital strategy supporting $100M+ international joint ventures across China and Paraguay.</li>
-            <li>Delivered enterprise digital transformation spanning cloud architecture, disaster recovery, cybersecurity, and clinical integration across international hospitals.</li>
-            <li>Managed $60M+ IT operating budget following a major health system merger with Continuum Health Partners.</li>
-            <li>Directed integration across 8 hospitals; established interoperability connecting 200+ partner organizations.</li>
-          </ul>
-        </div>
-      </div>
-
-      <div class="exp-item reveal">
-        <div class="exp-date">
-          <div class="exp-year">2011 – 2013</div>
-          <div class="exp-company">NYC Health + Hospitals</div>
-        </div>
-        <div class="exp-content">
-          <div class="exp-role">Senior Director of Technology</div>
-          <div class="exp-meta">New York, NY · Consultant</div>
-          <ul class="exp-bullets">
-            <li>Directed a $52M enterprise IT portfolio supporting citywide clinical and population health initiatives.</li>
-            <li>Built a $7M enterprise data center following Hurricane Sandy to restore mission-critical infrastructure.</li>
-            <li>Served as executive lead for the HEAL NY grant supporting interoperability modernization for 200+ community organizations.</li>
-          </ul>
+        <div class="exp-visual-dot"></div>
+        <div class="exp-visual-right">
+          <div class="exp-visual-role">Advisor</div>
+          <div class="exp-visual-tag">Global Private Equity</div>
+          <div class="exp-visual-impact">"Bringing 20 years of operator experience to the table — helping one of the world's largest PE firms separate signal from noise on complex healthcare technology investments."</div>
+          <div class="exp-visual-numbers">
+            <div class="exp-visual-stat"><span>MedTech</span>Sector focus</div>
+          </div>
         </div>
       </div>
 
-      <div class="exp-item reveal">
-        <div class="exp-date">
-          <div class="exp-year">2001 – 2011</div>
-          <div class="exp-company">Earlier Roles</div>
+      <div class="exp-visual-item reveal">
+        <div class="exp-visual-left">
+          <div class="exp-visual-year">2019 – 2026</div>
+          <div class="exp-visual-company">Baxter International</div>
         </div>
-        <div class="exp-content">
-          <div class="exp-role">Earlier Leadership Roles</div>
-          <div class="exp-meta">Amedisys · Ellkay Data Conversion · NYC Metro Consulting</div>
-          <ul class="exp-bullets">
-            <li>Supported 8+ acquisitions per month across 40+ states at Amedisys through integration leadership and SOX-compliant systems standardization.</li>
-            <li>Managed global delivery teams of 50+ offshore developers at Ellkay; executed 350+ EMR data migrations for hospitals and health systems nationwide.</li>
-            <li>Led enterprise system selection and PMO frameworks for Northwell Health and Beth Abraham Health Services.</li>
-          </ul>
+        <div class="exp-visual-dot"></div>
+        <div class="exp-visual-right">
+          <div class="exp-visual-role">President, Connected Care</div>
+          <div class="exp-visual-tag">NYSE: BAX · $650M P&amp;L · 3,200+ People · 16 Countries</div>
+          <div class="exp-visual-impact">"Owned the full P&L — $650M spanning services, connected care, and platform revenue — while building the technology organization that tied it all together across 16 countries and 3,200 people."</div>
+          <div class="exp-visual-numbers">
+            <div class="exp-visual-stat"><span>$650M</span>P&amp;L owned</div>
+            <div class="exp-visual-stat"><span>$24M</span>margin expansion</div>
+            <div class="exp-visual-stat"><span>13%</span>YoY growth</div>
+            <div class="exp-visual-stat"><span>2.5M+</span>devices connected</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="exp-visual-item reveal">
+        <div class="exp-visual-left">
+          <div class="exp-visual-year">2013 – 2019</div>
+          <div class="exp-visual-company">Mount Sinai</div>
+        </div>
+        <div class="exp-visual-dot"></div>
+        <div class="exp-visual-right">
+          <div class="exp-visual-role">Division CIO, International Business</div>
+          <div class="exp-visual-tag">Mount Sinai Health System · New York, NY</div>
+          <div class="exp-visual-impact">"Integrated an 8-hospital acquisition into one unified platform — then took the same playbook international."</div>
+          <div class="exp-visual-numbers">
+            <div class="exp-visual-stat"><span>8</span>hospitals integrated</div>
+            <div class="exp-visual-stat"><span>$60M+</span>IT budget managed</div>
+            <div class="exp-visual-stat"><span>200+</span>orgs connected</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="exp-visual-item reveal">
+        <div class="exp-visual-left">
+          <div class="exp-visual-year">2011 – 2013</div>
+          <div class="exp-visual-company">NYC Health + Hospitals</div>
+        </div>
+        <div class="exp-visual-dot"></div>
+        <div class="exp-visual-right">
+          <div class="exp-visual-role">Senior Director of Technology</div>
+          <div class="exp-visual-tag">New York, NY · Consultant</div>
+          <div class="exp-visual-impact">"Managed a $22M state health IT grant and a parallel systems migration across 11 hospitals simultaneously — for the largest municipal health system in the United States."</div>
+          <div class="exp-visual-numbers">
+            <div class="exp-visual-stat"><span>$22M</span>HEAL NY grant led</div>
+            <div class="exp-visual-stat"><span>22</span>sites connected</div>
+            <div class="exp-visual-stat"><span>Sandy</span>failover executed</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="exp-visual-item reveal">
+        <div class="exp-visual-left">
+          <div class="exp-visual-year">2001 – 2011</div>
+          <div class="exp-visual-company">Earlier Roles</div>
+        </div>
+        <div class="exp-visual-dot"></div>
+        <div class="exp-visual-right">
+          <div class="exp-visual-role">Amedisys · Ellkay · NYC Metro</div>
+          <div class="exp-visual-tag">Integration · Migration · Consulting</div>
+          <div class="exp-visual-impact">"The decade that built the foundation — 350+ EMR migrations, 8+ acquisitions per month, and enterprise system builds for some of New York's largest health systems."</div>
+          <div class="exp-visual-numbers">
+            <div class="exp-visual-stat"><span>350+</span>EMR migrations</div>
+            <div class="exp-visual-stat"><span>40+</span>states covered</div>
+            <div class="exp-visual-stat"><span>50+</span>offshore developers led</div>
+          </div>
         </div>
       </div>
 
@@ -1133,6 +1281,28 @@
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
   gtag('config', 'G-EFL3D698EF');
+</script>
+
+
+<script>
+(function() {
+  var track = document.getElementById('logoTrack');
+  if (!track) return;
+  var pos = 0, paused = false;
+  function half() { return track.scrollWidth / 2; }
+  function step() {
+    if (!paused) {
+      pos += 0.4;
+      if (pos >= half()) pos -= half();
+      track.style.transform = 'translateX(-' + pos + 'px)';
+    }
+    requestAnimationFrame(step);
+  }
+  track.parentElement.addEventListener('mouseenter', function() { paused = true; });
+  track.parentElement.addEventListener('mouseleave', function() { paused = false; });
+  window.addEventListener('load', step);
+  if (document.readyState === 'complete') step();
+})();
 </script>
 
 </body>
