@@ -671,19 +671,21 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    height: 36px;
-    opacity: 0.45;
-    transition: opacity .3s;
+    height: 44px;
+    padding: 0 32px;
+    opacity: 0.4;
     filter: grayscale(100%);
+    transition: opacity .3s, filter .3s;
+    cursor: default;
   }
   .logo-item:hover {
-    opacity: 0.8;
+    opacity: 0.9;
     filter: grayscale(0%);
   }
   .logo-item img {
     height: 32px;
     width: auto;
-    max-width: 120px;
+    max-width: 130px;
     object-fit: contain;
   }
 
@@ -757,19 +759,12 @@
   <div class="logo-strip-label">Organizations</div>
   <div class="logo-track-wrapper">
     <div class="logo-track" id="logoTrack">
-      <div class="logo-item"><img src="https://logo.dev/amedisys.com?token=pk_TcLMzBR_Rwa9dsvzPCdDEA" alt="Amedisys" /></div>
-      <div class="logo-item"><img src="https://logo.dev/nychealthandhospitals.org?token=pk_TcLMzBR_Rwa9dsvzPCdDEA" alt="NYC Health + Hospitals" /></div>
-      <div class="logo-item"><img src="https://logo.dev/mountsinai.org?token=pk_TcLMzBR_Rwa9dsvzPCdDEA" alt="Mount Sinai" /></div>
-      <div class="logo-item"><img src="https://logo.dev/mitsloan.mit.edu?token=pk_TcLMzBR_Rwa9dsvzPCdDEA" alt="MIT Sloan" /></div>
-      <div class="logo-item"><img src="https://logo.dev/baxter.com?token=pk_TcLMzBR_Rwa9dsvzPCdDEA" alt="Baxter International" /></div>
-      <div class="logo-item"><img src="https://logo.dev/kkr.com?token=pk_TcLMzBR_Rwa9dsvzPCdDEA" alt="KKR" /></div>
-      <!-- duplicates for seamless loop -->
-      <div class="logo-item"><img src="https://logo.dev/amedisys.com?token=pk_TcLMzBR_Rwa9dsvzPCdDEA" alt="Amedisys" /></div>
-      <div class="logo-item"><img src="https://logo.dev/nychealthandhospitals.org?token=pk_TcLMzBR_Rwa9dsvzPCdDEA" alt="NYC Health + Hospitals" /></div>
-      <div class="logo-item"><img src="https://logo.dev/mountsinai.org?token=pk_TcLMzBR_Rwa9dsvzPCdDEA" alt="Mount Sinai" /></div>
-      <div class="logo-item"><img src="https://logo.dev/mitsloan.mit.edu?token=pk_TcLMzBR_Rwa9dsvzPCdDEA" alt="MIT Sloan" /></div>
-      <div class="logo-item"><img src="https://logo.dev/baxter.com?token=pk_TcLMzBR_Rwa9dsvzPCdDEA" alt="Baxter International" /></div>
-      <div class="logo-item"><img src="https://logo.dev/kkr.com?token=pk_TcLMzBR_Rwa9dsvzPCdDEA" alt="KKR" /></div>
+      <div class="logo-item"><img src="images/logo-amedisys.png" alt="Amedisys" /></div>
+      <div class="logo-item"><img src="images/logo-nychh.png" alt="NYC Health + Hospitals" /></div>
+      <div class="logo-item"><img src="images/logo-mountsinai.png" alt="Mount Sinai" /></div>
+      <div class="logo-item"><img src="images/logo-mit.png" alt="MIT Sloan" /></div>
+      <div class="logo-item"><img src="images/logo-baxter.png" alt="Baxter International" /></div>
+      <div class="logo-item"><img src="images/logo-kkr.png" alt="KKR" /></div>
     </div>
   </div>
 </div>
