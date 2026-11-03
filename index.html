@@ -87,12 +87,12 @@
 
   /* ── HERO ── */
   .hero {
-    min-height: 88svh;
+    min-height: 0;
     display: flex; flex-direction: column; align-items: center; justify-content: center;
     text-align: center;
     background: var(--white);
     padding-top: calc(var(--nav-h) + 32px);
-    padding-bottom: 100px;
+    padding-bottom: 56px;
     position: relative;
     overflow: hidden;
   }
@@ -109,8 +109,9 @@
     opacity: 0; animation: fadeUp .7s .1s ease forwards;
   }
   .hero h1 {
-    font-size: clamp(48px, 8vw, 96px);
+    font-size: clamp(40px, 8vw, 88px);
     font-weight: 700; letter-spacing: -0.03em; line-height: 1.0;
+    white-space: nowrap;
     color: var(--gray-900);
     margin-bottom: 16px;
     opacity: 0; animation: fadeUp .7s .2s ease forwards;
@@ -140,7 +141,7 @@
   .btn-ghost:hover { background: #f0f7ff; transform: scale(1.02); }
   .hero-scroll {
     position: absolute; bottom: 40px; left: 50%; transform: translateX(-50%);
-    display: flex; flex-direction: column; align-items: center; gap: 8px;
+    display: none; flex-direction: column; align-items: center; gap: 8px;
     opacity: 0; animation: fadeUp .7s .8s ease forwards;
   }
   .hero-scroll span { font-size: 12px; color: var(--gray-300); letter-spacing: .08em; text-transform: uppercase; }
@@ -689,6 +690,22 @@
     object-fit: contain;
   }
 
+
+  /* ── HERO: matches the Contact section (same base, same corner glow, same type colors) ── */
+  .hero { background: var(--gray-900); }
+  .hero::before {
+    content: ''; position: absolute; top: -160px; left: -160px; width: 520px; height: 520px; inset: auto;
+    top: -160px; left: -160px;
+    background: radial-gradient(circle, rgba(0,113,227,0.18) 0%, transparent 70%);
+    -webkit-mask-image: none; mask-image: none; pointer-events: none;
+  }
+  .hero > * { position: relative; z-index: 1; }
+  .hero > .hero-scroll { position: absolute; }
+  .hero-eyebrow { color: #7eb3f5; }
+  .hero h1 { color: #ffffff; }
+  .hero-sub { color: rgba(255,255,255,0.6); }
+  .hero .btn-ghost { color: rgba(255,255,255,0.85); border-color: rgba(255,255,255,0.2); }
+  .hero .btn-ghost:hover { background: rgba(0,113,227,0.15); border-color: rgba(0,113,227,0.6); color: #fff; }
 </style>
 </head>
 <body>
@@ -715,7 +732,7 @@
     </div>
   </div>
   <p class="hero-eyebrow">Business Scaler. Complexity Decoder. Technology Operator.</p>
-  <h1>Donny<br>Patel</h1>
+  <h1>Donny Patel</h1>
   <p class="hero-sub">The pattern is consistent across every role — enter complexity, build clarity, scale the business.</p>
   <div class="hero-actions">
     <a class="btn-primary" href="#experience">View Experience</a>
